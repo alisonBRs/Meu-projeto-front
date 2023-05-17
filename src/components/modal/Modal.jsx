@@ -13,8 +13,6 @@ export function Modal({ isValid, userId, name, cost, description }) {
     name = sendName;
     cost = sendCost;
     description = sendDescription;
-
-    return console.log(sendName, sendCost, sendDescription);
   }
 
   useEffect(() => {

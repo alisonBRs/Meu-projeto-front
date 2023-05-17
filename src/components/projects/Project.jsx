@@ -33,17 +33,17 @@ export function Project() {
 
   const handleClick = () => {
     setIsValid(!isValid);
-  };
 
-  function postService() {
-    fetch(`http://localhost:3030/service/${id}`, {
-      method: "POST",
-      headers: {
-        ContentType: "application/json",
-      },
-      body: JSON.stringify({ name, cost, description }),
-    });
-  }
+    console.log(name, cost, description);
+
+    // fetch(`http://localhost:3030/service/${id}`, {
+    //   method: "POST",
+    //   headers: {
+    //     ContentType: "application/json",
+    //   },
+    //   body: JSON.stringify({ name, cost, description }),
+    // });
+  };
 
   return (
     <div className={styles.My_projects}>
