@@ -1,0 +1,9 @@
+.message_container {
+  text-align: center;
+  position: absolute;
+  right: 50%;
+  background: rgb(170, 233, 170);
+  padding: 0.5rem 1rem;
+  transform: translateX(50%);
+  border-radius: 1rem;
+}

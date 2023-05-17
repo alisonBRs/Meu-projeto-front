@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+  align-items: center;
+  padding: 2rem 2rem;
+}
+
+#navbar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+#navbar a:hover {
+  color: rgb(236, 187, 96);
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 4rem;
+}
+
+.logo h2 {
+  transform: translateX(-0.8rem);
+}

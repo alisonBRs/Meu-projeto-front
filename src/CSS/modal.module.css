@@ -1,0 +1,54 @@
+.Modal_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.363);
+}
+
+.Modal_container_off {
+  display: none;
+  opacity: 0;
+  transition: 2s;
+}
+
+.Modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  right: 50%;
+  bottom: 50%;
+  transform: translateY(50%) translateX(50%);
+  height: 20rem;
+  width: 32rem;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.Modal h2 {
+  margin-bottom: 1rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.close {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  color: red;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  height: 1.5rem;
+}

@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgb(164, 192, 233);
+  border-radius: 0.25rem;
+  height: 18rem;
+  width: 14rem;
+  padding: 1.5rem 2rem;
+  color: white;
+  text-align: center;
+}
+
+.number_services {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.number_services a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.number_services a:hover {
+  color: rgb(194, 225, 255);
+}
+
+.number_services span {
+  padding: 0.15rem 0.5rem;
+  background: red;
+  border-radius: 100%;
+  font-size: 0.8rem;
+  cursor: default;
+}
+
+.services_btn div {
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn_store:hover {
+  color: rgb(193, 239, 189);
+}
+
+.btn_delete:hover {
+  color: rgb(255, 135, 135);
+}
+
+.no_services {
+  cursor: default;
+}

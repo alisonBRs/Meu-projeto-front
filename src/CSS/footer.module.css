@@ -1,0 +1,27 @@
+.footer {
+  padding: 2rem 2rem;
+  background: black;
+  color: white;
+  flex-shrink: 0;
+}
+
+.footer h2 span:nth-child(1) {
+  color: rgb(236, 187, 96);
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+}
+
+.copyright h2 {
+  transform: translateX(-0.8rem);
+}
+
+.copyright img {
+  height: 4rem;
+}
+
+.footer p {
+  padding-left: 3.2rem;
+}

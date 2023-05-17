@@ -1,0 +1,58 @@
+.form_container {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form_container .form_box {
+  border-radius: 0.5rem;
+  background: rgb(164, 192, 233);
+  padding: 2rem;
+}
+
+.form_box h1 {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form p {
+  color: white;
+}
+
+.form div {
+  margin-top: 1rem;
+}
+
+.form .input {
+  border: none;
+  border-radius: 0.5rem;
+  height: 1.5rem;
+  padding: 0 1rem;
+  outline-color: rgb(164, 192, 233);
+}
+
+.form .button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  outline-color: rgb(164, 192, 233);
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  background: rgba(84, 103, 127);
+  transition: 0.5s;
+}
+
+.form .button:hover {
+  background: rgb(40, 51, 65);
+}
