@@ -9,7 +9,7 @@ import { Contact } from "./pages/Contact";
 import { Projects } from "./pages/Projects";
 import { CreateProject } from "./pages/CreateProject";
 import { useState } from "react";
-import { Modal } from "./components/modal/Modal";
+import { Modal } from "./components/Modal/Modal";
 
 function App() {
   const [showMessage, setShowMessage] = useState(false);

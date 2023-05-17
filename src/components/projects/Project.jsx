@@ -1,10 +1,10 @@
 import styles from "../../CSS/project.module.css";
 import style from "../../CSS/card.module.css";
 
-import { Modal } from "../modal/Modal";
 import { useEffect, useState } from "react";
 import { Button } from "../Button";
 import { Card } from "../Card";
+import { Modal } from "../Modal/Modal";
 
 export function Project() {
   const [projects, setProjects] = useState([]);
