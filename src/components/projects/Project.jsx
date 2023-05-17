@@ -33,16 +33,6 @@ export function Project() {
 
   const handleClick = () => {
     setIsValid(!isValid);
-
-    console.log(name, cost, description);
-
-    // fetch(`http://localhost:3030/service/${id}`, {
-    //   method: "POST",
-    //   headers: {
-    //     ContentType: "application/json",
-    //   },
-    //   body: JSON.stringify({ name, cost, description }),
-    // });
   };
 
   return (
@@ -77,6 +67,7 @@ export function Project() {
         userId={getUser}
         userData={handleClick}
         isValid={isValid}
+        id={id}
       />
     </div>
   );

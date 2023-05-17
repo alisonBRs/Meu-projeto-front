@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../../CSS/modal.module.css";
 import { RiCloseCircleLine } from "react-icons/ri";
 
-export function Modal({ isValid, userId, name, cost, description }) {
+export function Modal({ isValid, userId, name, cost, description, id }) {
   const [toggle, setToggle] = useState(false);
   const [sendName, setSendName] = useState();
   const [sendCost, setSendCost] = useState();
@@ -13,6 +13,14 @@ export function Modal({ isValid, userId, name, cost, description }) {
     name = sendName;
     cost = sendCost;
     description = sendDescription;
+
+    fetch(`http://localhost:3030/service/${id}`, {
+      method: "POST",
+      headers: {
+        ContentType: "application/json",
+      },
+      body: JSON.stringify({ name, cost, description }),
+    });
   }
 
   useEffect(() => {
