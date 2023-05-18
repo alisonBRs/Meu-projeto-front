@@ -13,6 +13,10 @@ export function Project() {
   const [getUser, setGetUser] = useState();
   const [id, setId] = useState();
 
+  const [name, setName] = useState();
+  const [cost, setCost] = useState();
+  const [description, setDescription] = useState();
+
   useEffect(() => {
     fetch("http://localhost:3030", {
       method: "GET",
@@ -31,6 +35,22 @@ export function Project() {
     setIsValid(!isValid);
   };
 
+  function Send() {
+    setIsValid(!isValid);
+
+    console.log(name, cost, description);
+
+    fetch(`http://localhost:3030/service/${id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, cost, description }),
+    });
+
+    return window.location.reload(false);
+  }
+
   function removeProject(id) {
     fetch(`http://localhost:3030/${id}`, {
       method: "DELETE",
@@ -48,7 +68,7 @@ export function Project() {
 
       <div
         className={
-          projects.length >= 3
+          projects.length >= 4
             ? styles.project_container
             : styles.project_container_center
         }
@@ -75,10 +95,13 @@ export function Project() {
       </div>
 
       <Modal
+        getName={setName}
+        getCost={setCost}
+        getDescription={setDescription}
+        postService={Send}
         userId={getUser}
         userData={handleClick}
         isValid={isValid}
-        id={id}
       />
     </div>
   );

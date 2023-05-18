@@ -25,14 +25,14 @@
 }
 
 .project_container {
-  width: 55rem;
+  width: 68rem;
   display: flex;
   gap: 4rem;
   flex-wrap: wrap;
 }
 
 .project_container_center {
-  width: 55rem;
+  width: 68rem;
   display: flex;
   justify-content: center;
   gap: 4rem;

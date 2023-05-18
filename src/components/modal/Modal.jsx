@@ -2,35 +2,35 @@ import { useEffect, useState } from "react";
 import styles from "../../CSS/modal.module.css";
 import { RiCloseCircleLine } from "react-icons/ri";
 
-export function Modal({ isValid, userId, id }) {
+export function Modal({
+  isValid,
+  userId,
+  postService,
+  getName,
+  getCost,
+  getDescription,
+}) {
   const [toggle, setToggle] = useState(false);
 
   const [name, setName] = useState();
   const [cost, setCost] = useState(Number());
   const [description, setDescription] = useState();
 
-  function Send() {
-    setToggle(!toggle);
-
-    fetch(`http://localhost:3030/service/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, cost, description }),
-    });
-
-    name("");
-    cost("");
-    description("");
-  }
-
   useEffect(() => {
     setToggle(!toggle);
   }, [isValid]);
 
+  function postDataService() {
+    postService();
+
+    console.log(name, cost, description);
+
+    getName(name);
+    getCost(cost);
+    getDescription(description);
+  }
+
   const closePopPup = () => {
-    isValid = true;
     setToggle(!toggle);
   };
 
@@ -72,7 +72,7 @@ export function Modal({ isValid, userId, id }) {
           </div>
         </div>
 
-        <button className={styles.btn} onClick={Send}>
+        <button className={styles.btn} onClick={postDataService}>
           Criar serviço
         </button>
 
