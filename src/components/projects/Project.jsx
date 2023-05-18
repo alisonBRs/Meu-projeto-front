@@ -13,10 +13,6 @@ export function Project() {
   const [getUser, setGetUser] = useState();
   const [id, setId] = useState();
 
-  const [name, setName] = useState();
-  const [cost, setCost] = useState();
-  const [description, setDescciption] = useState();
-
   useEffect(() => {
     fetch("http://localhost:3030", {
       method: "GET",
@@ -35,11 +31,28 @@ export function Project() {
     setIsValid(!isValid);
   };
 
+  function removeProject(id) {
+    fetch(`http://localhost:3030/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      setProjects(projects.filter((project) => project.id !== id));
+    });
+  }
+
   return (
     <div className={styles.My_projects}>
       <h1>Meus projetos</h1>
 
-      <div className={styles.project_container}>
+      <div
+        className={
+          projects.length >= 3
+            ? styles.project_container
+            : styles.project_container_center
+        }
+      >
         {projects.length > 0 ? (
           projects.map((project) => (
             <div key={project.id} className={style.card}>
@@ -49,6 +62,7 @@ export function Project() {
                 projects={project}
                 userName={setGetUser}
                 userId={setId}
+                dlProject={removeProject}
               />
             </div>
           ))
@@ -61,9 +75,6 @@ export function Project() {
       </div>
 
       <Modal
-        name={setName}
-        cost={setCost}
-        description={setDescciption}
         userId={getUser}
         userData={handleClick}
         isValid={isValid}

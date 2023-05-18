@@ -30,3 +30,11 @@
   gap: 4rem;
   flex-wrap: wrap;
 }
+
+.project_container_center {
+  width: 55rem;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}

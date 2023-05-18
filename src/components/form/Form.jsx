@@ -10,8 +10,6 @@ export function Form() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    console.log(name, budget);
-
     await fetch("http://localhost:3030", {
       method: "POST",
       headers: {

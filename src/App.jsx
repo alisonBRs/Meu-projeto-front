@@ -22,12 +22,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="sobre" element={<About />} />
           <Route path="contato" element={<Contact />} />
-          <Route path="projetos" element={<Projects />} />
+          <Route path="projetos" element={<Projects />}>
+            <Route path="projetos/:id" element={<Modal />} />
+          </Route>
           <Route
             path="projeto"
             element={<CreateProject showToast={setShowMessage} />}
           />
-          <Route path="projetos/:id" element={<Modal />} />
         </Routes>
       </Container>
 

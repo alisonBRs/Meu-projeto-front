@@ -3,11 +3,22 @@ import { MdOutlineLocalGroceryStore } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
-export function Card({ projects, handleSubmit, id, userName, userId }) {
+export function Card({
+  projects,
+  handleSubmit,
+  id,
+  userName,
+  userId,
+  dlProject,
+}) {
   function handleClick(id) {
     handleSubmit(id);
     userName(projects.name);
     userId(projects.id);
+  }
+
+  function removeProject() {
+    dlProject(id);
   }
 
   return (
@@ -41,7 +52,7 @@ export function Card({ projects, handleSubmit, id, userName, userId }) {
           <p>Adicionar serviço</p>
         </div>
 
-        <div className={styles.btn_delete}>
+        <div onClick={removeProject} className={styles.btn_delete}>
           <RiDeleteBin6Line />
           <p>Excluir projeto</p>
         </div>
