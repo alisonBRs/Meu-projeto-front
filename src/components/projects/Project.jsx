@@ -8,8 +8,9 @@ import { Modal } from "../Modal/Modal";
 
 export function Project() {
   const [projects, setProjects] = useState([]);
+  const [services, setServices] = useState([]);
   const [isValid, setIsValid] = useState(true);
-  const [alternativeModal, setAlternativeModal] = useState(true);
+  const [alternativeModal, setAlternativeModal] = useState();
 
   const [getUser, setGetUser] = useState();
   const [id, setId] = useState();
@@ -28,9 +29,22 @@ export function Project() {
       .catch((err) => console.log(err));
   }, []);
 
-  const showServices = () => {
+  const showServices = (id) => {
     setIsValid(!isValid);
     setAlternativeModal(false);
+
+    console.log(id);
+
+    fetch(`http://localhost:3030/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        setServices(data.services);
+      });
   };
 
   const handleClick = () => {
@@ -104,6 +118,7 @@ export function Project() {
         userId={getUser}
         userData={handleClick}
         isValid={isValid}
+        showServices={[services]}
       />
     </div>
   );

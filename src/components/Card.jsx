@@ -19,7 +19,7 @@ export function Card({
   }
 
   function showServices() {
-    services();
+    services(id);
   }
 
   function removeProject() {

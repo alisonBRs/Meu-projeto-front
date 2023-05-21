@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import styles from "../../CSS/modal.module.css";
 import { RiCloseCircleLine } from "react-icons/ri";
 
-export function Modal({ isValid, userId, postService, alternateModal }) {
+export function Modal({
+  isValid,
+  userId,
+  postService,
+  alternateModal,
+  showServices,
+}) {
   const [toggle, setToggle] = useState(false);
 
   const [name, setName] = useState();
@@ -66,9 +72,9 @@ export function Modal({ isValid, userId, postService, alternateModal }) {
             </button>
           </>
         ) : (
-          <div>
-            <p>teste</p>
-          </div>
+          <>
+            <p>{userId}</p>
+          </>
         )}
 
         <div className={styles.close} onClick={closePopPup}>
