@@ -9,6 +9,7 @@ import { Modal } from "../Modal/Modal";
 export function Project() {
   const [projects, setProjects] = useState([]);
   const [services, setServices] = useState([]);
+
   const [isValid, setIsValid] = useState(true);
   const [alternativeModal, setAlternativeModal] = useState();
 
@@ -45,6 +46,8 @@ export function Project() {
       .then((data) => {
         setServices(data.services);
       });
+
+    console.log(services);
   };
 
   const handleClick = () => {
@@ -118,7 +121,7 @@ export function Project() {
         userId={getUser}
         userData={handleClick}
         isValid={isValid}
-        showServices={[services]}
+        services={services}
       />
     </div>
   );

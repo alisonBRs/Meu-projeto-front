@@ -7,7 +7,7 @@ export function Modal({
   userId,
   postService,
   alternateModal,
-  showServices,
+  services,
 }) {
   const [toggle, setToggle] = useState(false);
 
@@ -72,9 +72,9 @@ export function Modal({
             </button>
           </>
         ) : (
-          <>
-            <p>{userId}</p>
-          </>
+          <div>
+            <p>teste</p>
+          </div>
         )}
 
         <div className={styles.close} onClick={closePopPup}>
