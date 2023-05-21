@@ -9,13 +9,10 @@ import { Modal } from "../Modal/Modal";
 export function Project() {
   const [projects, setProjects] = useState([]);
   const [isValid, setIsValid] = useState(true);
+  const [alternativeModal, setAlternativeModal] = useState(true);
 
   const [getUser, setGetUser] = useState();
   const [id, setId] = useState();
-
-  const [name, setName] = useState();
-  const [cost, setCost] = useState();
-  const [description, setDescription] = useState();
 
   useEffect(() => {
     fetch("http://localhost:3030", {
@@ -31,11 +28,17 @@ export function Project() {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleClick = () => {
+  const showServices = () => {
     setIsValid(!isValid);
+    setAlternativeModal(false);
   };
 
-  function Send() {
+  const handleClick = () => {
+    setIsValid(!isValid);
+    setAlternativeModal(true);
+  };
+
+  function Send(name, cost, description) {
     setIsValid(!isValid);
 
     console.log(name, cost, description);
@@ -83,6 +86,7 @@ export function Project() {
                 userName={setGetUser}
                 userId={setId}
                 dlProject={removeProject}
+                services={showServices}
               />
             </div>
           ))
@@ -95,9 +99,7 @@ export function Project() {
       </div>
 
       <Modal
-        getName={setName}
-        getCost={setCost}
-        getDescription={setDescription}
+        alternateModal={alternativeModal}
         postService={Send}
         userId={getUser}
         userData={handleClick}

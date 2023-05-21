@@ -10,11 +10,16 @@ export function Card({
   userName,
   userId,
   dlProject,
+  services,
 }) {
-  function handleClick(id) {
-    handleSubmit(id);
+  function handleClick() {
+    handleSubmit();
     userName(projects.name);
     userId(projects.id);
+  }
+
+  function showServices() {
+    services();
   }
 
   function removeProject() {
@@ -36,7 +41,7 @@ export function Card({
       {projects.services.length ? (
         <div className={styles.number_services}>
           <span>{projects.services.length}</span>
-          <Link to={`${id}`} onClick={handleClick}>
+          <Link onClick={showServices}>
             {projects.services.length <= 1 ? "serviço" : "serviços"}
           </Link>
         </div>
