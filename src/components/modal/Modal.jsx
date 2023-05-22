@@ -72,6 +72,7 @@ export function Modal({
           </div>
         ) : (
           <div className={styles.services_container}>
+            <h2>Todos os serviços de: {userId}</h2>
             {services.map((service) => (
               <div className={styles.services} key={service.id}>
                 <p>{service.name}</p>

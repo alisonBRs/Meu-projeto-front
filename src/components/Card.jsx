@@ -20,6 +20,7 @@ export function Card({
 
   function showServices() {
     services(id);
+    userName(projects.name);
   }
 
   function removeProject() {

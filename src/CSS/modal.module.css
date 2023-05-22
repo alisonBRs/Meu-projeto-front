@@ -105,6 +105,11 @@
   flex-wrap: wrap;
 }
 
+.services_container h2 {
+  width: 100%;
+  text-align: center;
+}
+
 .services {
   background: rgba(84, 103, 127);
   border-radius: 0.5rem;
