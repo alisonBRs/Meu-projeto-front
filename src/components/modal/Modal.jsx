@@ -29,9 +29,9 @@ export function Modal({
 
   return (
     <div
-      className={toggle ? styles.Modal_container_off : styles.Modal_container}
+      className={toggle ? styles.modal_container_off : styles.modal_container}
     >
-      <div className={styles.Modal}>
+      <div className={styles.modal}>
         {alternateModal ? (
           <>
             <h2>Adicione um serviço para: {userId}</h2>
