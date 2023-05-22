@@ -72,8 +72,14 @@ export function Modal({
             </button>
           </>
         ) : (
-          <div>
-            <p>teste</p>
+          <div className={styles.services_container}>
+            {services.map((service) => (
+              <div className={styles.services} key={service.id}>
+                <p>{service.name}</p>
+                <p>{service.cost}</p>
+                <p>{service.description}</p>
+              </div>
+            ))}
           </div>
         )}
 

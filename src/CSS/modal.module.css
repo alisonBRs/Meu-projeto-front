@@ -82,3 +82,14 @@
   color: rgb(236, 187, 96);
   background: rgb(49, 49, 49);
 }
+
+.services_container {
+  display: flex;
+  gap: 1rem;
+}
+
+.services {
+  background: rgba(84, 103, 127);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}

@@ -46,8 +46,6 @@ export function Project() {
       .then((data) => {
         setServices(data.services);
       });
-
-    console.log(services);
   };
 
   const handleClick = () => {
