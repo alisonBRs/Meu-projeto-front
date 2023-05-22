@@ -33,7 +33,7 @@ export function Modal({
     >
       <div className={styles.modal}>
         {alternateModal ? (
-          <>
+          <div className={styles.add_service_container}>
             <h2>Adicione um serviço para: {userId}</h2>
 
             <div className={styles.input_container}>
@@ -66,11 +66,10 @@ export function Modal({
                 </label>
               </div>
             </div>
-
             <button className={styles.btn} onClick={postDataService}>
               Criar serviço
             </button>
-          </>
+          </div>
         ) : (
           <div className={styles.services_container}>
             {services.map((service) => (
