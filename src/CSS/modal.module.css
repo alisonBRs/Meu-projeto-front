@@ -112,9 +112,20 @@
 }
 
 .services {
+  display: flex;
+  flex-direction: column;
   background: rgba(84, 103, 127);
   border-radius: 0.5rem;
   padding: 0.5rem;
   width: 13rem;
   height: 8rem;
+}
+
+.services_descriptions {
+  flex: 1 0 auto;
+}
+
+.services_btns {
+  display: flex;
+  justify-content: space-evenly;
 }

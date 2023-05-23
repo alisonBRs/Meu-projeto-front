@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../../CSS/modal.module.css";
-import { RiCloseCircleLine } from "react-icons/ri";
+import { RiCloseCircleLine, RiDeleteBin6Line } from "react-icons/ri";
+import { FaRegEdit } from "react-icons/fa";
 
 export function Modal({
   isValid,
@@ -76,9 +77,16 @@ export function Modal({
             <div className={styles.services_container}>
               {services.map((service) => (
                 <div className={styles.services} key={service.id}>
-                  <p>{service.name}</p>
-                  <p>{service.cost}</p>
-                  <p>{service.description}</p>
+                  <div className={styles.services_descriptions}>
+                    <h4>Nome do serviço: {service.name}</h4>
+                    <p>Custo: R${service.cost.toLocaleString("pt-br")}</p>
+                    <p>Descrição: {service.description}</p>
+                  </div>
+
+                  <div className={styles.services_btns}>
+                    <FaRegEdit />
+                    <RiDeleteBin6Line />
+                  </div>
                 </div>
               ))}
             </div>

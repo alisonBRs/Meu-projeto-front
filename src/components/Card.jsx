@@ -35,7 +35,7 @@ export function Card({
         <p>carteira: </p>
         <span>
           <span>R$</span>
-          {projects.budget}
+          {projects.budget.toLocaleString("pt-br")}
         </span>
       </div>
 
