@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
   gap: 1rem;
 }
 
@@ -28,7 +29,7 @@
   right: 50%;
   bottom: 50%;
   transform: translateY(50%) translateX(50%);
-  height: 23rem;
+  height: 31rem;
   width: 32rem;
   background: white;
   border-radius: 0.5rem;
@@ -114,18 +115,47 @@
 .services {
   display: flex;
   flex-direction: column;
+  text-align: center;
   background: rgba(84, 103, 127);
   border-radius: 0.5rem;
   padding: 0.5rem;
   width: 13rem;
-  height: 8rem;
+  height: 10rem;
 }
 
 .services_descriptions {
   flex: 1 0 auto;
 }
 
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
 .services_btns {
   display: flex;
   justify-content: space-evenly;
+}
+
+.trash {
+  color: aliceblue;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.trash:hover {
+  color: rgb(236, 148, 148);
+}
+
+.edit {
+  color: aliceblue;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit:hover {
+  color: rgb(226, 189, 121);
 }

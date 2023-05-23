@@ -9,6 +9,8 @@ export function Modal({
   postService,
   alternateModal,
   services,
+  budget,
+  costs,
 }) {
   const [toggle, setToggle] = useState(false);
 
@@ -73,19 +75,29 @@ export function Modal({
           </div>
         ) : (
           <>
-            <h2>Todos os serviços de: {userId}</h2>
+            <div className={styles.title}>
+              <h2>Todos os serviços de: {userId}</h2>
+              <p>
+                R${costs?.toLocaleString("pt-br")} / R$
+                {budget?.toLocaleString("pt-br")}
+              </p>
+            </div>
             <div className={styles.services_container}>
               {services.map((service) => (
                 <div className={styles.services} key={service.id}>
                   <div className={styles.services_descriptions}>
-                    <h4>Nome do serviço: {service.name}</h4>
+                    <h4>{service.name}</h4>
                     <p>Custo: R${service.cost.toLocaleString("pt-br")}</p>
-                    <p>Descrição: {service.description}</p>
+                    <p>{service.description}</p>
                   </div>
 
                   <div className={styles.services_btns}>
-                    <FaRegEdit />
-                    <RiDeleteBin6Line />
+                    <span className={styles.edit}>
+                      <FaRegEdit />
+                    </span>
+                    <span className={styles.trash}>
+                      <RiDeleteBin6Line />
+                    </span>
                   </div>
                 </div>
               ))}

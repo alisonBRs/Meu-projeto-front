@@ -11,6 +11,8 @@ export function Card({
   userId,
   dlProject,
   services,
+  budget,
+  costs,
 }) {
   function handleClick() {
     handleSubmit();
@@ -21,6 +23,8 @@ export function Card({
   function showServices() {
     services(id);
     userName(projects.name);
+    budget(projects.budget);
+    costs(projects.cost);
   }
 
   function removeProject() {

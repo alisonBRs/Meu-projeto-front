@@ -13,6 +13,9 @@ export function Project() {
   const [isValid, setIsValid] = useState(true);
   const [alternativeModal, setAlternativeModal] = useState();
 
+  const [budget, setBudget] = useState();
+  const [costs, setCosts] = useState();
+
   const [getUser, setGetUser] = useState();
   const [id, setId] = useState();
 
@@ -102,6 +105,8 @@ export function Project() {
                 userId={setId}
                 dlProject={removeProject}
                 services={showServices}
+                budget={setBudget}
+                costs={setCosts}
               />
             </div>
           ))
@@ -120,6 +125,8 @@ export function Project() {
         userData={handleClick}
         isValid={isValid}
         services={services}
+        budget={budget}
+        costs={costs}
       />
     </div>
   );
