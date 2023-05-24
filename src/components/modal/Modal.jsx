@@ -36,7 +36,7 @@ export function Modal({
     >
       <div className={styles.modal}>
         {alternateModal ? (
-          <div className={styles.add_service_container}>
+          <form autoComplete="off" className={styles.add_service_container}>
             <h2>Adicione um serviço para: {userId}</h2>
 
             <div className={styles.input_container}>
@@ -72,7 +72,7 @@ export function Modal({
             <button className={styles.btn} onClick={postDataService}>
               Criar serviço
             </button>
-          </div>
+          </form>
         ) : (
           <>
             <div className={styles.title}>

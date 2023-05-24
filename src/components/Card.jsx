@@ -18,6 +18,7 @@ export function Card({
     handleSubmit();
     userName(projects.name);
     userId(projects.id);
+    costs(projects.cost);
   }
 
   function showServices() {

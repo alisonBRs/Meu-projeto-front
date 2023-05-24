@@ -33,13 +33,11 @@ export function Project() {
       .catch((err) => console.log(err));
   }, []);
 
-  const showServices = (id) => {
+  const showServices = async (id) => {
     setIsValid(!isValid);
     setAlternativeModal(false);
 
-    console.log(id);
-
-    fetch(`http://localhost:3030/${id}`, {
+    await fetch(`http://localhost:3030/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -56,12 +54,10 @@ export function Project() {
     setAlternativeModal(true);
   };
 
-  function Send(name, cost, description) {
+  async function Send(name, cost, description) {
     setIsValid(!isValid);
 
-    console.log(name, cost, description);
-
-    fetch(`http://localhost:3030/service/${id}`, {
+    await fetch(`http://localhost:3030/service/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,11 +65,19 @@ export function Project() {
       body: JSON.stringify({ name, cost, description }),
     });
 
+    await fetch(`http://localhost:3030/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cost: cost + costs }),
+    });
+
     return window.location.reload(false);
   }
 
-  function removeProject(id) {
-    fetch(`http://localhost:3030/${id}`, {
+  async function removeProject(id) {
+    await fetch(`http://localhost:3030/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
