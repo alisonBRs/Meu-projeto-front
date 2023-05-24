@@ -9,6 +9,7 @@ import { Modal } from "../Modal/Modal";
 export function Project() {
   const [projects, setProjects] = useState([]);
   const [services, setServices] = useState([]);
+  const [getServices, setGetServices] = useState([]);
 
   const [isValid, setIsValid] = useState(true);
   const [alternativeModal, setAlternativeModal] = useState();
@@ -70,7 +71,7 @@ export function Project() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ cost: cost + costs }),
+      body: JSON.stringify({ cost: costs + cost }),
     });
 
     return window.location.reload(false);
@@ -111,6 +112,7 @@ export function Project() {
                 services={showServices}
                 budget={setBudget}
                 costs={setCosts}
+                getServicesLength={setGetServices}
               />
             </div>
           ))
@@ -131,6 +133,7 @@ export function Project() {
         services={services}
         budget={budget}
         costs={costs}
+        projects={getServices}
       />
     </div>
   );

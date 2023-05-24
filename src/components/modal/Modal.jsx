@@ -11,6 +11,7 @@ export function Modal({
   services,
   budget,
   costs,
+  projects,
 }) {
   const [toggle, setToggle] = useState(false);
 
@@ -76,7 +77,10 @@ export function Modal({
         ) : (
           <>
             <div className={styles.title}>
-              <h2>Todos os serviços de: {userId}</h2>
+              <h2>
+                Todos os serviços de: {userId}
+                <span className={styles.total_services}>{projects.length}</span>
+              </h2>
               <p>
                 R${costs?.toLocaleString("pt-br")} / R$
                 {budget?.toLocaleString("pt-br")}

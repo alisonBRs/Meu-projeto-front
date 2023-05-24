@@ -159,3 +159,15 @@
 .edit:hover {
   color: rgb(226, 189, 121);
 }
+
+.total_services {
+  color: white;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  background: red;
+  border-radius: 100%;
+  font-size: 0.8rem;
+  cursor: default;
+}
