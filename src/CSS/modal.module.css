@@ -86,7 +86,6 @@
 
 .services_container {
   display: flex;
-  margin-left: 1rem;
   gap: 1rem;
   flex-wrap: wrap;
   overflow-y: auto;
