@@ -24,9 +24,7 @@ export function Card({
 
   function showServices() {
     services(id);
-    userName(projects.name);
     budget(projects.budget);
-    costs(projects.cost);
     getServicesLength(projects.services);
   }
 
