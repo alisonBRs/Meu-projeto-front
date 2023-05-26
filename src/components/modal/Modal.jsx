@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "../../CSS/modal.module.css";
-import { RiCloseCircleLine, RiDeleteBin6Line } from "react-icons/ri";
-import { FaRegEdit } from "react-icons/fa";
+import { RiCloseCircleLine } from "react-icons/ri";
+import { ModalBox } from "../modal/ModalBox";
 
 export function Modal({
   isValid,
@@ -9,9 +9,11 @@ export function Modal({
   postService,
   alternateModal,
   services,
+  servicesId,
   budget,
   costs,
   projects,
+  projectId,
 }) {
   const [toggle, setToggle] = useState(false);
 
@@ -29,6 +31,10 @@ export function Modal({
 
   const closePopPup = () => {
     setToggle(!toggle);
+  };
+
+  const deleteService = (id) => {
+    servicesId(id, projectId);
   };
 
   return (
@@ -89,20 +95,11 @@ export function Modal({
             <div className={styles.services_container}>
               {services.map((service) => (
                 <div className={styles.services} key={service.id}>
-                  <div className={styles.services_descriptions}>
-                    <h4>{service.name}</h4>
-                    <p>Custo: R${service.cost.toLocaleString("pt-br")}</p>
-                    <p>{service.description}</p>
-                  </div>
-
-                  <div className={styles.services_btns}>
-                    <span className={styles.edit}>
-                      <FaRegEdit />
-                    </span>
-                    <span className={styles.trash}>
-                      <RiDeleteBin6Line />
-                    </span>
-                  </div>
+                  <ModalBox
+                    service={service}
+                    styles={styles}
+                    serviceId={deleteService}
+                  />
                 </div>
               ))}
             </div>

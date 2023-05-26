@@ -10,6 +10,7 @@ export function Project() {
   const [projects, setProjects] = useState([]);
   const [services, setServices] = useState([]);
   const [getServices, setGetServices] = useState([]);
+  const [projectId, setProjectId] = useState([]);
 
   const [isValid, setIsValid] = useState(true);
   const [alternativeModal, setAlternativeModal] = useState();
@@ -88,6 +89,17 @@ export function Project() {
     });
   }
 
+  async function deleteService(serviceId, projectId) {
+    await fetch(`http://localhost:3030/service/${projectId}/${serviceId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      setServices(services.filter((service) => service.id !== serviceId));
+    });
+  }
+
   return (
     <div className={styles.My_projects}>
       <h1>Meus projetos</h1>
@@ -113,6 +125,7 @@ export function Project() {
                 budget={setBudget}
                 costs={setCosts}
                 getServicesLength={setGetServices}
+                getProjectId={setProjectId}
               />
             </div>
           ))
@@ -134,6 +147,8 @@ export function Project() {
         budget={budget}
         costs={costs}
         projects={getServices}
+        servicesId={deleteService}
+        projectId={projectId}
       />
     </div>
   );
