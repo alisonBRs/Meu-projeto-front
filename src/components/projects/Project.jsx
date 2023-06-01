@@ -67,15 +67,19 @@ export function Project() {
       body: JSON.stringify({ name, cost, description }),
     });
 
+    let atualizeCost = cost + costs;
+
     await fetch(`http://localhost:3030/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ cost: costs + cost }),
+      body: JSON.stringify({ cost: atualizeCost }),
     });
 
-    return window.location.reload(false);
+    console.log(cost + " + " + cost + " = " + atualizeCost);
+
+    //return window.location.reload(false);
   }
 
   async function removeProject(id) {
