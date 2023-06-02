@@ -144,7 +144,7 @@ export function Project() {
       <Modal
         alternateModal={alternativeModal}
         postService={Send}
-        userId={getUser}
+        userName={getUser}
         userData={handleClick}
         isValid={isValid}
         services={services}

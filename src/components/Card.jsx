@@ -20,6 +20,7 @@ export function Card({
     handleSubmit();
     userId(id);
     costs(projects.cost);
+    userName(projects.name);
   }
 
   function showServices() {

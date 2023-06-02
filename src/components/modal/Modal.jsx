@@ -5,7 +5,7 @@ import { ModalBox } from "../modal/ModalBox";
 
 export function Modal({
   isValid,
-  userId,
+  userName,
   postService,
   alternateModal,
   services,
@@ -45,7 +45,7 @@ export function Modal({
       <div className={styles.modal}>
         {alternateModal ? (
           <form autoComplete="off" className={styles.add_service_container}>
-            <h2>Adicione um serviço para: {userId}</h2>
+            <h2>Adicione um serviço para: {userName}</h2>
 
             <div className={styles.input_container}>
               <div className={styles.input}>
@@ -85,7 +85,7 @@ export function Modal({
           <>
             <div className={styles.title}>
               <h2>
-                Todos os serviços de: {userId}
+                Todos os serviços de: {userName}
                 <span className={styles.total_services}>{projects.length}</span>
               </h2>
               <p>
