@@ -25,7 +25,8 @@ export function Modal({
     setToggle(!toggle);
   }, [isValid]);
 
-  function postDataService() {
+  function postDataService(e) {
+    e.preventDefault();
     postService(name, cost, description);
   }
 

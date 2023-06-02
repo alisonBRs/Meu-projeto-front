@@ -77,7 +77,7 @@ export function Project() {
       body: JSON.stringify({ cost: atualizeCost }),
     });
 
-    console.log(cost + " + " + cost + " = " + atualizeCost);
+    console.log(cost + " + " + costs + " = " + atualizeCost);
 
     //return window.location.reload(false);
   }
