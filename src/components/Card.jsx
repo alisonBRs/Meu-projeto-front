@@ -29,6 +29,7 @@ export function Card({
     getServicesLength(projects.services);
     getProjectId(id);
     userName(projects.name);
+    costs(projects.cost);
   }
 
   function removeProject() {
