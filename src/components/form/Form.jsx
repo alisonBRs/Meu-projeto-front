@@ -31,7 +31,7 @@ export function Form() {
           className={styles.form}
         >
           <label htmlFor="text">
-            <p>Seu nome:</p>
+            <p>Nome do seu projeto:</p>
             <input
               className={styles.input}
               required={true}
