@@ -106,8 +106,12 @@ export function Project() {
 
   return (
     <div className={styles.My_projects}>
-      <h1>Meus projetos</h1>
-
+      <div className={styles.project_title}>
+        <div className={styles.title_container}>
+          <h1>Meus projetos</h1>
+        </div>
+        <Button>Novo projeto</Button>
+      </div>
       <div
         className={
           projects.length >= 4

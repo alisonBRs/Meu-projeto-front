@@ -1,13 +1,31 @@
+.project_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.project_title h1 {
+  color: white;
+  width: fit-content;
+  transform: translateX(30%);
+}
+
+.project_title a {
+  width: 8.5rem;
+}
+
+.title_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .My_projects {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.My_projects h1 {
-  color: white;
-  text-align: center;
-  margin-bottom: 2rem;
 }
 
 .no_projects {
