@@ -4,7 +4,7 @@ import style from "../../CSS/card.module.css";
 import { useEffect, useState } from "react";
 import { Button } from "../Button";
 import { Card } from "../Card";
-import { Modal } from "../Modal/Modal";
+import { Modal } from "../modal/Modal";
 
 export function Project() {
   const [projects, setProjects] = useState([]);
@@ -137,7 +137,7 @@ export function Project() {
           ))
         ) : (
           <div className={styles.no_projects}>
-            <h2>Sem progetos no momento</h2>
+            <h2>Sem projetos no momento</h2>
             <Button>Criar projeto</Button>
           </div>
         )}
