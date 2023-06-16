@@ -21,18 +21,23 @@ export function Project() {
   const [getUser, setGetUser] = useState();
   const [id, setId] = useState();
 
+  const test = async () => {
+    try {
+      const data = await fetch("http://localhost:3030", {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      const dataJson = await data.json();
+      setProjects(dataJson);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    fetch("http://localhost:3030", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        setProjects(data);
-      })
-      .catch((err) => console.log(err));
+    test();
   }, []);
 
   const showServices = async (id) => {
@@ -77,9 +82,7 @@ export function Project() {
       body: JSON.stringify({ cost: atualizeCost }),
     });
 
-    console.log(cost + " + " + costs + " = " + atualizeCost);
-
-    //return window.location.reload(false);
+    await test();
   }
 
   async function removeProject(id) {
