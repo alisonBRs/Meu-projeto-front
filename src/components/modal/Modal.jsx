@@ -18,7 +18,7 @@ export function Modal({
   const [toggle, setToggle] = useState(false);
 
   const [name, setName] = useState();
-  const [cost, setCost] = useState(Number());
+  const [cost, setCost] = useState();
   const [description, setDescription] = useState();
 
   useEffect(() => {
@@ -28,6 +28,10 @@ export function Modal({
   function postDataService(e) {
     e.preventDefault();
     postService(name, cost, description);
+
+    setName("");
+    setCost("");
+    setDescription("");
   }
 
   const closePopPup = () => {
@@ -55,6 +59,7 @@ export function Modal({
                     onChange={(e) => setName(e.target.value)}
                     type="text"
                     id="name"
+                    value={name}
                   />
                 </label>
 
@@ -64,6 +69,7 @@ export function Modal({
                     onChange={(e) => setCost(Number(e.target.value))}
                     type="number"
                     id="cost"
+                    value={cost}
                   />
                 </label>
 
@@ -73,6 +79,7 @@ export function Modal({
                     onChange={(e) => setDescription(e.target.value)}
                     type="text"
                     id="description"
+                    value={description}
                   />
                 </label>
               </div>

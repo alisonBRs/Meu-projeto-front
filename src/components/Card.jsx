@@ -22,7 +22,6 @@ export function Card({
     costs(projects.cost);
     userName(projects.name);
   }
-  console.log(projects?.services?.length);
 
   function showServices() {
     services(id);

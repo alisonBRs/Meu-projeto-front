@@ -72,7 +72,7 @@ export function Project() {
       body: JSON.stringify({ name, cost, description }),
     });
 
-    let atualizeCost = cost + costs;
+    let atualizeCost = Number(cost) + costs;
 
     await fetch(`http://localhost:3030/${id}`, {
       method: "PATCH",
