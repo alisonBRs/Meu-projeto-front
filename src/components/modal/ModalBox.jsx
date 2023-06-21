@@ -24,6 +24,10 @@ export function ModalBox({ service, styles, serviceId, saveDataId }) {
 
   const toggleCancel = () => {
     setToggle(!toggle);
+
+    setName(service.name);
+    setCost(service.cost);
+    setDescription(service.description);
   };
 
   return (
