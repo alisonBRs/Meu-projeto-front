@@ -164,8 +164,10 @@
 
 .edit_services form input {
   width: 100%;
+  text-align: center;
   border-radius: 0.25rem;
   border-style: initial;
+  padding: 0 0.5rem;
 }
 
 .edit_services_btns {
@@ -182,6 +184,12 @@
   background: black;
   border-radius: 0.25rem;
   padding: 0.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit_services_btns button:hover {
+  background: rgb(66, 62, 62);
 }
 
 .trash {

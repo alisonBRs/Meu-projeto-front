@@ -2,16 +2,30 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaRegEdit } from "react-icons/fa";
 import { useState } from "react";
 
-export function ModalBox({ service, styles, serviceId }) {
+export function ModalBox({ service, styles, serviceId, saveDataId }) {
   const [toggle, setToggle] = useState(false);
+
+  const [name, setName] = useState(service.name);
+  const [cost, setCost] = useState(service.cost);
+  const [description, setDescription] = useState(service.description);
 
   const deleteService = () => {
     serviceId(service.id);
   };
 
+  const sendData = (e) => {
+    e.preventDefault();
+    saveDataId(service.id, name, cost, description);
+  };
+
   const toggleEdit = () => {
     setToggle(!toggle);
   };
+
+  const toggleCancel = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <>
       {!toggle ? (
@@ -23,33 +37,48 @@ export function ModalBox({ service, styles, serviceId }) {
           </div>
 
           <div className={styles.services_btns}>
-            <span onClick={toggleEdit} className={styles.edit}>
-              <FaRegEdit />
-            </span>
             <span onClick={deleteService} className={styles.trash}>
               <RiDeleteBin6Line />
+            </span>
+            <span onClick={toggleEdit} className={styles.edit}>
+              <FaRegEdit />
             </span>
           </div>
         </>
       ) : (
         <div className={styles.edit_services}>
           <h3>Editar serviço</h3>
-          <form autoComplete="off">
+          <form onSubmit={sendData} autoComplete="off">
             <label htmlFor="name">
-              <input placeholder="nome do serviço" type="text" id="name" />
+              <input
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                id="name"
+                value={name}
+              />
             </label>
 
             <label htmlFor="cost">
-              <input placeholder="custo" type="number" id="cost" />
+              <input
+                onChange={(e) => setCost(e.target.value)}
+                type="number"
+                id="cost"
+                value={cost}
+              />
             </label>
 
             <label htmlFor="description">
-              <input placeholder="descrição" type="text" id="description" />
+              <input
+                onChange={(e) => setDescription(e.target.value)}
+                type="text"
+                id="description"
+                value={description}
+              />
             </label>
 
             <div className={styles.edit_services_btns}>
-              <button onClick={toggleEdit}>Cancelar</button>
               <button>Salvar</button>
+              <button onClick={toggleCancel}>Cancelar</button>
             </div>
           </form>
         </div>

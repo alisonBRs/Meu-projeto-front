@@ -42,6 +42,18 @@ export function Modal({
     servicesId(id, projectId);
   };
 
+  const serviceResponse = async (id, name, cost, description) => {
+    // await fetch(`http://localhost:3030/service/${projectId}/${id}`, {
+    //   method: "PATCH",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ name, cost, description }),
+    // });
+
+    console.log(`http://localhost:3030/service/${projectId}/${id}`);
+  };
+
   return (
     <div
       className={toggle ? styles.modal_container_off : styles.modal_container}
@@ -104,6 +116,7 @@ export function Modal({
               {services.map((service) => (
                 <div className={styles.services} key={service.id}>
                   <ModalBox
+                    saveDataId={serviceResponse}
                     service={service}
                     styles={styles}
                     serviceId={deleteService}
