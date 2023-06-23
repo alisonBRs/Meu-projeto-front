@@ -16,6 +16,7 @@ export function ModalBox({ service, styles, serviceId, saveDataId }) {
   const sendData = (e) => {
     e.preventDefault();
     saveDataId(service.id, name, cost, description);
+    //setToggle(!toggle);
   };
 
   const toggleEdit = () => {
@@ -82,7 +83,7 @@ export function ModalBox({ service, styles, serviceId, saveDataId }) {
 
             <div className={styles.edit_services_btns}>
               <button>Salvar</button>
-              <button onClick={toggleCancel}>Cancelar</button>
+              <a onClick={toggleCancel}>Cancelar</a>
             </div>
           </form>
         </div>
