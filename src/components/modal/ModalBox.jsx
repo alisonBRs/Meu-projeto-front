@@ -2,7 +2,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaRegEdit } from "react-icons/fa";
 import { useState } from "react";
 
-export function ModalBox({ service, styles, serviceId, saveDataId }) {
+export function ModalBox({ service, styles, serviceId, saveDataId, getData }) {
   const [toggle, setToggle] = useState(false);
 
   const [name, setName] = useState(service.name);
@@ -15,12 +15,13 @@ export function ModalBox({ service, styles, serviceId, saveDataId }) {
 
   const sendData = (e) => {
     e.preventDefault();
-    saveDataId(service.id, name, cost, description);
-    //setToggle(!toggle);
+    saveDataId(service.id, name, Number(cost), description);
+    setToggle(!toggle);
   };
 
   const toggleEdit = () => {
     setToggle(!toggle);
+    getData(service.id);
   };
 
   const toggleCancel = () => {

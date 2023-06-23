@@ -21,9 +21,29 @@ export function Modal({
   const [cost, setCost] = useState();
   const [description, setDescription] = useState();
 
+  const [projectCost, setProjectCost] = useState();
+  const [serviceCost, setServiceCost] = useState();
+
   useEffect(() => {
     setToggle(!toggle);
   }, [isValid]);
+
+  const reloadChanges = async () => {
+    try {
+      const data = await fetch("`http://localhost:3030", {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    reloadChanges();
+  }, []);
 
   function postDataService(e) {
     e.preventDefault();
@@ -42,16 +62,55 @@ export function Modal({
     servicesId(id, projectId);
   };
 
-  const serviceResponse = async (id, name, cost, description) => {
-    // await fetch(`http://localhost:3030/service/${projectId}/${id}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ name, cost, description }),
-    // });
+  const costsResponse = async (serviceId) => {
+    try {
+      const data = await fetch(`http://localhost:3030/${projectId}`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      const dataJson = await data.json();
+      setProjectCost(dataJson.cost);
+    } catch (err) {
+      console.error(err);
+    }
 
-    console.log(`http://localhost:3030/service/${projectId}/${id}`);
+    try {
+      const data = await fetch(
+        `http://localhost:3030/service/${projectId}/${serviceId}`,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+      const dataJson = await data.json();
+      setServiceCost(dataJson[0].cost);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const serviceResponse = async (id, name, cost, description) => {
+    const sum = projectCost - serviceCost + Number(cost);
+
+    await fetch(`http://localhost:3030/${projectId}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ cost: sum }),
+    });
+
+    await fetch(`http://localhost:3030/service/${projectId}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, cost, description }),
+    });
   };
 
   return (
@@ -120,6 +179,7 @@ export function Modal({
                     service={service}
                     styles={styles}
                     serviceId={deleteService}
+                    getData={costsResponse}
                   />
                 </div>
               ))}
