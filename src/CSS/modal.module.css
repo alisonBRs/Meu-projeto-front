@@ -178,7 +178,8 @@
   font-size: 0.75rem;
 }
 
-.edit_services_btns button {
+.edit_services_btns button,
+.edit_services_btns a {
   border-style: none;
   color: white;
   background: black;
@@ -188,7 +189,8 @@
   transition: 0.3s;
 }
 
-.edit_services_btns button:hover {
+.edit_services_btns button:hover,
+.edit_services_btns a:hover {
   background: rgb(66, 62, 62);
 }
 
