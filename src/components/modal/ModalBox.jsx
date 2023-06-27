@@ -10,12 +10,12 @@ export function ModalBox({ service, styles, serviceId, saveDataId, getData }) {
   const [description, setDescription] = useState(service.description);
 
   const deleteService = () => {
-    serviceId(service.id);
+    serviceId(service.id, service.cost);
   };
 
   const sendData = (e) => {
     e.preventDefault();
-    saveDataId(service.id, name, Number(cost), description);
+    saveDataId(service.id, name, Number(cost), description, service.cost);
     setToggle(!toggle);
   };
 

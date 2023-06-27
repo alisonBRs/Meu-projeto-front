@@ -36,6 +36,19 @@ export function Project() {
     }
   };
 
+  const service = async () => {
+    try {
+      const data = await fetch("http://localhost:3030/service", {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     test();
   }, []);
@@ -96,7 +109,7 @@ export function Project() {
     });
   }
 
-  async function deleteService(serviceId, projectId) {
+  async function deleteService(serviceId, projectId, serviceCost) {
     await fetch(`http://localhost:3030/service/${projectId}/${serviceId}`, {
       method: "DELETE",
       headers: {
@@ -105,6 +118,18 @@ export function Project() {
     }).then(() => {
       setServices(services.filter((service) => service.id !== serviceId));
     });
+
+    const sum = costs - serviceCost;
+
+    await fetch(`http://localhost:3030/${projectId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cost: sum }),
+    });
+
+    service();
   }
 
   return (

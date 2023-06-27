@@ -22,7 +22,7 @@ export function Modal({
   const [description, setDescription] = useState();
 
   const [projectCost, setProjectCost] = useState();
-  const [serviceCost, setServiceCost] = useState();
+  // const [serviceCost, setServiceCost] = useState();
 
   useEffect(() => {
     setToggle(!toggle);
@@ -30,7 +30,7 @@ export function Modal({
 
   const reloadChanges = async () => {
     try {
-      const data = await fetch("`http://localhost:3030", {
+      await fetch("`http://localhost:3030", {
         method: "GET",
         headers: {
           "content-type": "application/json",
@@ -58,8 +58,9 @@ export function Modal({
     setToggle(!toggle);
   };
 
-  const deleteService = (id) => {
-    servicesId(id, projectId);
+  const deleteService = (id, serviceCost) => {
+    servicesId(id, projectId, serviceCost);
+    costsResponse(id);
   };
 
   const costsResponse = async (serviceId) => {
@@ -75,25 +76,9 @@ export function Modal({
     } catch (err) {
       console.error(err);
     }
-
-    try {
-      const data = await fetch(
-        `http://localhost:3030/service/${projectId}/${serviceId}`,
-        {
-          method: "GET",
-          headers: {
-            "content-type": "application/json",
-          },
-        }
-      );
-      const dataJson = await data.json();
-      setServiceCost(dataJson[0].cost);
-    } catch (err) {
-      console.error(err);
-    }
   };
 
-  const serviceResponse = async (id, name, cost, description) => {
+  const serviceResponse = async (id, name, cost, description, serviceCost) => {
     const sum = projectCost - serviceCost + Number(cost);
 
     await fetch(`http://localhost:3030/${projectId}`, {
