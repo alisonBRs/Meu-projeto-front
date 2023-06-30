@@ -14,36 +14,20 @@ export function Modal({
   costs,
   projects,
   projectId,
+  updateServices,
+  updateProjectCost,
+  costSum,
 }) {
   const [toggle, setToggle] = useState(false);
 
   const [name, setName] = useState();
   const [cost, setCost] = useState();
   const [description, setDescription] = useState();
-
-  const [projectCost, setProjectCost] = useState();
-  // const [serviceCost, setServiceCost] = useState();
+  const [projectCost, setProjectCost] = useState([]);
 
   useEffect(() => {
     setToggle(!toggle);
   }, [isValid]);
-
-  const reloadChanges = async () => {
-    try {
-      await fetch("`http://localhost:3030", {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    reloadChanges();
-  }, []);
 
   function postDataService(e) {
     e.preventDefault();
@@ -63,7 +47,7 @@ export function Modal({
     costsResponse(id);
   };
 
-  const costsResponse = async (serviceId) => {
+  const costsResponse = async () => {
     try {
       const data = await fetch(`http://localhost:3030/${projectId}`, {
         method: "GET",
@@ -96,6 +80,10 @@ export function Modal({
       },
       body: JSON.stringify({ name, cost, description }),
     });
+
+    updateServices({ id, name, cost, description, serviceCost });
+    updateProjectCost({ sum });
+    costSum(sum);
   };
 
   return (

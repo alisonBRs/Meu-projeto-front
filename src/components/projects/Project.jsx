@@ -21,6 +21,8 @@ export function Project() {
   const [getUser, setGetUser] = useState();
   const [id, setId] = useState();
 
+  const [sum, setSum] = useState();
+
   const test = async () => {
     try {
       const data = await fetch("http://localhost:3030", {
@@ -36,22 +38,27 @@ export function Project() {
     }
   };
 
-  const service = async () => {
-    try {
-      const data = await fetch("http://localhost:3030/service", {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     test();
   }, []);
+
+  const updateServices = (data) => {
+    const newServices = services.map((service) => {
+      if (service.id === data.id) {
+        return { ...service, ...data };
+      }
+
+      return service;
+    });
+    setServices(newServices);
+  };
+
+  const updateProjectCost = (data) => {
+    const updatedCost = { ...costs, data };
+    setCosts(updatedCost.data.sum);
+
+    return costs;
+  };
 
   const showServices = async (id) => {
     setIsValid(!isValid);
@@ -67,6 +74,8 @@ export function Project() {
       .then((data) => {
         setServices(data.services);
       });
+
+    setCosts(updateProjectCost(sum));
   };
 
   const handleClick = () => {
@@ -128,8 +137,6 @@ export function Project() {
       },
       body: JSON.stringify({ cost: sum }),
     });
-
-    service();
   }
 
   return (
@@ -183,6 +190,9 @@ export function Project() {
         projects={getServices}
         servicesId={deleteService}
         projectId={projectId}
+        updateServices={updateServices}
+        updateProjectCost={updateProjectCost}
+        costSum={setSum}
       />
     </div>
   );
