@@ -144,7 +144,13 @@ export function Modal({
                 {budget?.toLocaleString("pt-br")}
               </p>
             </div>
-            <div className={styles.services_container}>
+            <div
+              className={
+                projects.length <= 4
+                  ? styles.services_container_1
+                  : styles.services_container_2
+              }
+            >
               {services.map((service) => (
                 <div className={styles.services} key={service.id}>
                   <ModalBox

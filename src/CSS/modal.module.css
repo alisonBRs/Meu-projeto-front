@@ -84,7 +84,14 @@
   background: rgb(49, 49, 49);
 }
 
-.services_container {
+.services_container_1 {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.services_container_2 {
   display: flex;
   margin-left: 1rem;
   gap: 1rem;
@@ -92,16 +99,19 @@
   overflow-y: auto;
 }
 
-.services_container::-webkit-scrollbar {
+.services_container_1::-webkit-scrollbar,
+.services_container_2::-webkit-scrollbar {
   width: 0.5rem;
 }
 
-.services_container::-webkit-scrollbar-track {
+.services_container_1::-webkit-scrollbar-track,
+.services_container_2::-webkit-scrollbar-track {
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
 
-.services_container::-webkit-scrollbar-thumb {
+.services_container_1::-webkit-scrollbar-thumb,
+.services_container_2::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgba(84, 103, 127);

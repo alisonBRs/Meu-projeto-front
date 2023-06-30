@@ -76,6 +76,8 @@ export function Project() {
       });
 
     setCosts(updateProjectCost(sum));
+
+    test();
   };
 
   const handleClick = () => {
@@ -137,6 +139,8 @@ export function Project() {
       },
       body: JSON.stringify({ cost: sum }),
     });
+
+    test();
   }
 
   return (
